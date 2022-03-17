@@ -56,7 +56,7 @@ function typist(text, target){
 //creer un dynamic project card
 const projectContainer =document.querySelector('.project-container');
 
-projects.forEach(project => {
+projects.forEach(project => {         
     projectContainer.innerHTML += `
     <div class="project-card" data-tags="#all, ${project.tags}">
         <a href=${project.link} target="_blank">
