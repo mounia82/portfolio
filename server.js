@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 const dotenv= require('dotenv');
+
+const port = process.env.PORT || 3000
 
 dotenv.config();
 
@@ -17,30 +20,49 @@ app.get('/', (req, res) => {
 
 app.post('/mail', (req, res) => {
     const {firstname, lastname,email, msg }= req.body;
-    const transporter = nodemailer.createTransport({
-        service:'gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
-        }
 
-    })
-    const mailOptions = {
-        from:'',                    //enter sender email here
-        to:'',                     //enter reciever email here
-        subject:'Postfolio',
-        text:`First name: ${firstname}, \nLast name: ${lastname}, \nEmail: ${email}, \nMessage: ${msg}`
+
+    var data = {
+        Nom:firstname,
+        Prenom:lastname,
+        Email:email,
+        Msg:msg
+    };
+    
+    if(data.Nom!="" && data.Prenom!="" && data.Email!="" && data.Msg!="")
+    {
+        console.log("Message Can be Send!");
+        var Transport = nodemailer.createTransport(smtpTransport({
+            host: "smtp.gmail.com",
+            service: "Gmail",
+            auth: {
+                user: "mouniaatif02@gmail.com",
+                pass: "papillon12"
+            }
+        }));
+        Transport.sendMail({
+            from: "Message Envoyé depuis le Site" + "<mouniaatif02@gmail.com>", // sender address
+            to: data.Email, // comma separated list of receivers
+            subject: "Test", // Subject line
+            text:data.Msg,  // Plain-Text Body
+            html: data.Msg // Html Body
+        },
+        (err, info) => {
+            console.log(err)
+            if (err)
+            {
+                console.log(err);
+                res.json('opps! it seems like some error occured plz. try again.')
+            }
+            else
+            {
+                res.json('thanks for e-mailing me I will reply to you within 2 working days');
+            }
+        })
     }
-    transporter.sendMail(mailOptions ,(err, result) =>{
-        if (err){
-            console.log(err);
-            res.json('opps! it seems like some error occured plz. try again.')
-        }else{
-            res.json('thanks for e-mailing me I will reply to you within 2 working days');
-        }
-    })
 })
 
-app.listen('3000', () => {
+
+app.listen(port, () => {
    console.log('listening....'); 
 })

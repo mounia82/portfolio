@@ -1,6 +1,7 @@
 let projects = [
     {
-        name:" progect one ",
+        
+        name:" project one ",
         tags: "#PHP,#JavaScript,#Html/CSS,#GroupProject",
         image:"project(1).png",
         link:"https://github.com/mounia82/jdld"

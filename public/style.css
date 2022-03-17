@@ -259,12 +259,12 @@ transform: scale(1.2);
     opacity: 0.7;
 
 } 
-.seperator{
+/* .seperator{
     width: 25%;
     margin:20px auto;
     position: relative;
     color: rgb(245, 28, 28);
-}
+} */
 /* .cercle{
     border-radius:11% 89% 67% 33% / 30% 34% 66% 70% ;
     width: 10rem;
@@ -398,6 +398,7 @@ ion-icon {
     position: relative;
     cursor: pointer;
     display: block;
+    
 }
 .project-card img{
     width: 100%;
@@ -419,6 +420,7 @@ ion-icon {
     transition: .5s;
     text-transform: capitalize;
     opacity: 0;
+    
 
 }
 
@@ -427,6 +429,7 @@ ion-icon {
     font-size:2.5rem ;
     text-align: center;
     font-family:'coolvetica' ,sans-serif;
+    text-decoration: none;
 
 }
 
