@@ -37,7 +37,7 @@ app.post('/mail', (req, res) => {
             service: "Gmail",
             auth: {
                 user: "mouniaatif02@gmail.com",
-                pass: "process.env"
+                pass: process.env.PASS 
             }
         }));
         Transport.sendMail({
