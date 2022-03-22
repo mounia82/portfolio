@@ -19,18 +19,23 @@ let projects = [
         name:"project three",
         tags: "#CarteVacance,#Illustrator",
         image:"carteVacance.png",
+        link:"#"
     },
     {
         id : "Illustator",
         name:"project four",
         tags: "#ILLUSTRATOR,logo",
-        image:"bc-consulting-logo.png"
+        image:"bc-consulting-logo.png",
+        link:"#"
+
     },
     {
         id : "Illustator",
         name:"project five",
         tags: "#CarteVacance2,#Illustrator",
         image:"carteVacance2.png",
+        link:"#"
+
     },
 
 
