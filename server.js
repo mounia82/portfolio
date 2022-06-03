@@ -43,7 +43,7 @@ app.post('/mail', (req, res) => {
         Transport.sendMail({
             from: "Message Envoyé depuis le Site" + "<mouniaatif02@gmail.com>", // sender address
             to: data.Email, // comma separated list of receivers
-            subject: "Test", // Subject line
+            subject: "", // Subject line
             text:data.Msg,  // Plain-Text Body
             html: data.Msg // Html Body
         },
